@@ -1,0 +1,11 @@
+<h1>Songs</h1>
+
+<% if @songs.empty? %>
+  <h3>There's no songs in the list yet, please <%= link_to "add a song here", new_song_path %></h3>
+<% else %>
+  <ul>
+    <% @songs.each do |song| %>
+      <li><%= link_to "#{song.artist_name} - #{song.title}", song_path(song) %></li>
+    <% end %>
+</ul>
+<% end %>

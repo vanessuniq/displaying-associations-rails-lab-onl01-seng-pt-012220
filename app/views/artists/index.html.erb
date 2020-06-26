@@ -1,0 +1,14 @@
+<h1>Artists</h1>
+
+<% if @artists.empty? %>
+  <h3>There's no artist in the list yet, please <%= link_to "Add an artist here", new_artist_path %></h3>
+<% else %>
+  <ul>
+    <% @artists.each do |artist| %>
+      <li>
+      <%= link_to artist.name, artist %>
+      (<%= pluralize(artist.song_count, "song")%>)
+      </li>
+    <% end %>
+  </ul>
+<% end %>
